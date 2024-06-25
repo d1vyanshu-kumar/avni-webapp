@@ -2,11 +2,7 @@ import React, { useEffect, useReducer } from "react";
 import ScreenWithAppBar from "../../common/components/ScreenWithAppBar";
 import MaterialTable from "material-table";
 import api from "../api";
-import {
-  getMetadataOptions,
-  initialState,
-  SubjectAssignmentReducer
-} from "../reducers/SubjectAssignmentReducer";
+import { getMetadataOptions, initialState, SubjectAssignmentReducer } from "../reducers/SubjectAssignmentReducer";
 import { getColumns } from "./SubjectAssignmentColumns";
 import { fetchSubjectData } from "./SubjectAssignmentData";
 import Grid from "@material-ui/core/Grid";
@@ -141,11 +137,7 @@ const SubjectAssignment = () => {
     );
   };
 
-  return (
-    <ScreenWithAppBar appbarTitle={"Subject Assignment"}>
-      {state.loaded && renderData()}
-    </ScreenWithAppBar>
-  );
+  return <ScreenWithAppBar appbarTitle={"Subject Assignment"}>{state.loaded && renderData()}</ScreenWithAppBar>;
 };
 
 export default SubjectAssignment;

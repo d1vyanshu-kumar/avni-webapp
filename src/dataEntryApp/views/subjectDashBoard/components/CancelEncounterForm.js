@@ -3,13 +3,7 @@ import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { ObservationsHolder } from "avni-models";
 import FormWizard from "dataEntryApp/views/registration/FormWizard";
-import {
-  updateCancelObs,
-  saveEncounter,
-  setValidationResults,
-  onNext,
-  onPrevious
-} from "dataEntryApp/reducers/encounterReducer";
+import { updateCancelObs, saveEncounter, setValidationResults, onNext, onPrevious } from "dataEntryApp/reducers/encounterReducer";
 
 const mapFormStateToProps = state => {
   const encounter = state.dataEntry.encounterReducer.encounter;

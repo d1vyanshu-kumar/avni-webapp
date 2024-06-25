@@ -80,16 +80,8 @@ export const wizardPage = {
     wizardPage.clickNext();
   },
   checkScenarioHideFirstFEG() {
-    wizardPage.assertIfPageDoesNotContains(
-      "First FEG",
-      "First FE of first FEG",
-      "Last FE of first FEG"
-    );
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageDoesNotContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.clickNext();
@@ -97,22 +89,14 @@ export const wizardPage = {
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.clickPrevious();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Summary & Recommendations");
   },
   checkScenarioHideFirstFEGbyAllFEG() {
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.clickNext();
@@ -120,11 +104,7 @@ export const wizardPage = {
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.clickPrevious();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.clickNext();
@@ -157,11 +137,7 @@ export const wizardPage = {
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG");
     wizardPage.assertIfPageDoesNotContains("Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG", "Last FE of last FEG");
     wizardPage.clickNext();
@@ -169,20 +145,12 @@ export const wizardPage = {
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG", "Last FE of last FEG");
     wizardPage.clickPrevious();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG");
     wizardPage.assertIfPageDoesNotContains("Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG", "Last FE of last FEG");
     wizardPage.clickNext();
@@ -271,58 +239,34 @@ export const wizardPage = {
   checkScenarioHideLastFEG() {
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageDoesNotContains("Last FEG");
     wizardPage.assertIfPageContains("Summary & Recommendations");
     wizardPage.clickPrevious();
     wizardPage.assertIfPageDoesNotContains("Last FEG");
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Summary & Recommendations");
   },
   checkScenarioHideLastFEGbyAllFEG() {
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageDoesNotContains("Last FEG");
     wizardPage.assertIfPageContains("Summary & Recommendations");
     wizardPage.clickPrevious();
     wizardPage.assertIfPageDoesNotContains("Last FEG");
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageDoesNotContains("Last FEG");
     wizardPage.assertIfPageContains("Summary & Recommendations");
@@ -330,11 +274,7 @@ export const wizardPage = {
   checkScenarioHideFirstFEofLastFEG() {
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "Last FE of last FEG");
     wizardPage.assertIfPageDoesNotContains("First FE of last FEG");
@@ -344,19 +284,11 @@ export const wizardPage = {
     wizardPage.assertIfPageContains("Last FEG", "Last FE of last FEG");
     wizardPage.assertIfPageDoesNotContains("First FE of last FEG");
     wizardPage.clickPrevious();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "Last FE of last FEG");
     wizardPage.assertIfPageDoesNotContains("First FE of last FEG");
@@ -366,11 +298,7 @@ export const wizardPage = {
   checkScenarioHideLastFEofLastFEG() {
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.assertIfPageDoesNotContains("Last FE of last FEG");
@@ -380,19 +308,11 @@ export const wizardPage = {
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.assertIfPageDoesNotContains("Last FE of last FEG");
     wizardPage.clickPrevious();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG");
     wizardPage.assertIfPageDoesNotContains("Last FE of last FEG");
@@ -400,29 +320,13 @@ export const wizardPage = {
     wizardPage.assertIfPageContains("Summary & Recommendations");
   },
   checkScenarioHideAllFEG() {
-    wizardPage.assertIfPageDoesNotContains(
-      "First FEG",
-      "First FE of first FEG",
-      "Last FE of first FEG"
-    );
+    wizardPage.assertIfPageDoesNotContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Summary & Recommendations");
     wizardPage.clickPrevious();
-    wizardPage.assertIfPageDoesNotContains(
-      "Last FEG",
-      "First FE of last FEG",
-      "Last FE of last FEG"
-    );
-    wizardPage.assertIfPageDoesNotContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of last FEG"
-    );
-    wizardPage.assertIfPageDoesNotContains(
-      "First FEG",
-      "First FE of first FEG",
-      "Last FE of first FEG"
-    );
+    wizardPage.assertIfPageDoesNotContains("Last FEG", "First FE of last FEG", "Last FE of last FEG");
+    wizardPage.assertIfPageDoesNotContains("Second FEG", "First FE of second FEG", "Last FE of last FEG");
+    wizardPage.assertIfPageDoesNotContains("First FEG", "First FE of first FEG", "Last FE of first FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Summary & Recommendations");
   },
@@ -430,21 +334,13 @@ export const wizardPage = {
     wizardPage.selectOption("Hide second FEG");
     wizardPage.assertIfPageContains("First FEG", "Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageDoesNotContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageDoesNotContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Summary & Recommendations");
     wizardPage.clickPrevious();
     wizardPage.assertIfPageContains("Last FEG");
     wizardPage.clickPrevious();
-    wizardPage.assertIfPageDoesNotContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageDoesNotContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.assertIfPageContains("First FEG");
   },
   checkScenarioFEhiddeninSameFEG() {
@@ -453,11 +349,7 @@ export const wizardPage = {
     wizardPage.assertIfPageContains("First FEG", "First FE of first FEG");
     wizardPage.assertIfPageDoesNotContains("Last FE of first FEG");
     wizardPage.clickNext();
-    wizardPage.assertIfPageContains(
-      "Second FEG",
-      "First FE of second FEG",
-      "Last FE of second FEG"
-    );
+    wizardPage.assertIfPageContains("Second FEG", "First FE of second FEG", "Last FE of second FEG");
     wizardPage.clickNext();
     wizardPage.assertIfPageContains("Last FEG", "First FE of last FEG", "Last FE of last FEG");
     wizardPage.clickNext();

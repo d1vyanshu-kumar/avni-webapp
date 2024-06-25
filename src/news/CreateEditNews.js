@@ -96,9 +96,7 @@ export const CreateEditNews = ({ handleClose, open, headerTitle, edit, existingN
           setError([
             {
               key: "SERVER_ERROR",
-              message: `${get(error, "response.data") ||
-                get(error, "message") ||
-                "error while saving card"}`
+              message: `${get(error, "response.data") || get(error, "message") || "error while saving card"}`
             }
           ]);
         });
@@ -106,11 +104,7 @@ export const CreateEditNews = ({ handleClose, open, headerTitle, edit, existingN
   };
 
   return (
-    <Dialog
-      onClose={MuiComponentHelper.getDialogClosingHandler(handleClose)}
-      classes={{ paper: classes.dialogPaper }}
-      open={open}
-    >
+    <Dialog onClose={MuiComponentHelper.getDialogClosingHandler(handleClose)} classes={{ paper: classes.dialogPaper }} open={open}>
       <CustomDialogTitle onClose={handleClose}>{headerTitle}</CustomDialogTitle>
       <DialogContent>
         <Grid container spacing={4} direction={"column"}>
@@ -132,16 +126,7 @@ export const CreateEditNews = ({ handleClose, open, headerTitle, edit, existingN
               fullWidth
               margin="normal"
               value={news.title || ""}
-              onChange={event =>
-                dispatchActionAndClearError(
-                  "title",
-                  event.target.value,
-                  "EMPTY_TITLE",
-                  dispatch,
-                  error,
-                  setError
-                )
-              }
+              onChange={event => dispatchActionAndClearError("title", event.target.value, "EMPTY_TITLE", dispatch, error, setError)}
             />
             {displayErrorForKey(error, "EMPTY_TITLE")}
           </Grid>
@@ -152,14 +137,7 @@ export const CreateEditNews = ({ handleClose, open, headerTitle, edit, existingN
                 <RichTextEditor
                   editorState={news.editorState}
                   setEditorState={newState =>
-                    dispatchActionAndClearError(
-                      "editorState",
-                      newState,
-                      "LESS_CONTENT",
-                      dispatch,
-                      error,
-                      setError
-                    )
+                    dispatchActionAndClearError("editorState", newState, "LESS_CONTENT", dispatch, error, setError)
                   }
                 />
               </Box>
@@ -168,12 +146,7 @@ export const CreateEditNews = ({ handleClose, open, headerTitle, edit, existingN
           </Grid>
           <Grid item>{displayErrorForKey(error, "SERVER_ERROR")}</Grid>
           <Grid item>
-            <ActionButton
-              onClick={onSave}
-              variant="contained"
-              style={{ paddingHorizontal: 10 }}
-              size="medium"
-            >
+            <ActionButton onClick={onSave} variant="contained" style={{ paddingHorizontal: 10 }} size="medium">
               {"Save Broadcast"}
             </ActionButton>
           </Grid>

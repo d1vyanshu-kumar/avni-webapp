@@ -39,11 +39,9 @@ export const DeleteData = ({ openModal, setOpenModal, orgName }) => {
     "This will remove all transactional data such as subjects, " +
     "program enrolments and encounters entered through the Field App. Do you want to continue?";
   const deleteMetadataMessage =
-    "Delete Everything! (This will delete all metadata such as subject types, " +
-    "encounter types and form definitions)";
+    "Delete Everything! (This will delete all metadata such as subject types, " + "encounter types and form definitions)";
   const deleteClientDataMessage =
-    "This only deletes data from the server database. " +
-    "Please make sure you delete data from the field app manually.";
+    "This only deletes data from the server database. " + "Please make sure you delete data from the field app manually.";
 
   const deleteData = () => {
     setOpenModal(false);
@@ -59,9 +57,7 @@ export const DeleteData = ({ openModal, setOpenModal, orgName }) => {
       })
       .catch(error => {
         setLoading(false);
-        const errorMessage = `${get(error, "response.data") ||
-          get(error, "message") ||
-          "unknown error"}`;
+        const errorMessage = `${get(error, "response.data") || get(error, "message") || "unknown error"}`;
         setMessage({ title: `Error occurred while deleting data`, content: errorMessage });
         setShowAlert(true);
       });
@@ -69,17 +65,8 @@ export const DeleteData = ({ openModal, setOpenModal, orgName }) => {
 
   return (
     <div>
-      <Modal
-        onClose={MuiComponentHelper.getDialogClosingHandler(() => setOpenModal(false))}
-        open={openModal}
-      >
-        <Grid
-          container
-          direction={"column"}
-          spacing={3}
-          className={classes.paper}
-          style={{ top: "25%", left: "30%" }}
-        >
+      <Modal onClose={MuiComponentHelper.getDialogClosingHandler(() => setOpenModal(false))} open={openModal}>
+        <Grid container direction={"column"} spacing={3} className={classes.paper} style={{ top: "25%", left: "30%" }}>
           <Grid item container spacing={1} xs={12}>
             <Grid item xs={1}>
               {" "}

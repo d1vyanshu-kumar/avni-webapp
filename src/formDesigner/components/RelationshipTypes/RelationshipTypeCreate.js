@@ -63,12 +63,8 @@ function RelationshipTypeCreate() {
     } else {
       let relationError = {};
 
-      relationError["individualAIsToBRelationError"] = !isEmpty(individualAIsToBRelation)
-        ? ""
-        : "Please select relation";
-      relationError["individualBIsToARelationError"] = !isEmpty(individualBIsToARelation)
-        ? ""
-        : "Please select reverse relation";
+      relationError["individualAIsToBRelationError"] = !isEmpty(individualAIsToBRelation) ? "" : "Please select relation";
+      relationError["individualBIsToARelationError"] = !isEmpty(individualBIsToARelation) ? "" : "Please select reverse relation";
       setError(relationError);
     }
   };
@@ -79,9 +75,7 @@ function RelationshipTypeCreate() {
         <Title title={"Create Relationship Type"} />
         <DocumentationContainer filename={"RelationshipType.md"}>
           {!isIndividualSubjectTypeAvailable && (
-            <div style={{ color: "red", size: "10" }}>
-              Please create an Person subject type to enable this screen{" "}
-            </div>
+            <div style={{ color: "red", size: "10" }}>Please create an Person subject type to enable this screen </div>
           )}
 
           {error.individualAIsToBRelationError !== "" && (

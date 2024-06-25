@@ -22,9 +22,7 @@ export const FilePreview = ({ url, obsValue }) => {
     const nameLength = size(originalName);
     const MAX_CHAR_ALLOWED = 12;
     if (nameLength > MAX_CHAR_ALLOWED + 3) {
-      return `${originalName.substring(0, MAX_CHAR_ALLOWED / 2 - 1)}...${originalName.substring(
-        nameLength - MAX_CHAR_ALLOWED / 2
-      )}`;
+      return `${originalName.substring(0, MAX_CHAR_ALLOWED / 2 - 1)}...${originalName.substring(nameLength - MAX_CHAR_ALLOWED / 2)}`;
     }
     return originalName;
   };

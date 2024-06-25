@@ -69,11 +69,7 @@ const SubjectTypeCreate = ({ organisationConfig }) => {
     setNameValidation(false);
 
     if (!groupValidationError) {
-      const [s3FileKey, error] = await uploadImage(
-        subjectType.iconFileS3Key,
-        file,
-        bucketName.ICONS
-      );
+      const [s3FileKey, error] = await uploadImage(subjectType.iconFileS3Key, file, bucketName.ICONS);
       if (error) {
         alert(error);
         return;
@@ -132,12 +128,7 @@ const SubjectTypeCreate = ({ organisationConfig }) => {
                 <></>
               )}
               <p />
-              <AdvancedSettings
-                subjectType={subjectType}
-                dispatch={dispatch}
-                locationTypes={locationTypes}
-                formMappings={formMappings}
-              />
+              <AdvancedSettings subjectType={subjectType} dispatch={dispatch} locationTypes={locationTypes} formMappings={formMappings} />
               <div />
               {nameValidation && (
                 <FormLabel error style={{ marginTop: "10px", fontSize: "12px" }}>

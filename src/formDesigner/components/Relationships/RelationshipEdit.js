@@ -103,16 +103,10 @@ function RelationshipEdit(props) {
           </Grid>
 
           {!isIndividualSubjectTypeAvailable && (
-            <div style={{ color: "red", size: "10" }}>
-              Go to subject type and please create Person subject type{" "}
-            </div>
+            <div style={{ color: "red", size: "10" }}>Go to subject type and please create Person subject type </div>
           )}
-          {error === "existName" && (
-            <div style={{ color: "red", size: "6" }}>Same relationship is already present</div>
-          )}
-          {error === "emptyName" && (
-            <div style={{ color: "red", size: "6" }}>Empty name is not allowed</div>
-          )}
+          {error === "existName" && <div style={{ color: "red", size: "6" }}>Same relationship is already present</div>}
+          {error === "emptyName" && <div style={{ color: "red", size: "6" }}>Empty name is not allowed</div>}
 
           <TextField
             id="name"
@@ -127,12 +121,7 @@ function RelationshipEdit(props) {
             {genders.map(gender => {
               return (
                 <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={relationshipGenders.includes(gender.name) ? true : false}
-                      name={gender.name}
-                    />
-                  }
+                  control={<Checkbox checked={relationshipGenders.includes(gender.name) ? true : false} name={gender.name} />}
                   label={gender.name}
                   key={gender.uuid}
                   onClick={() => checkGender(gender.name)}
@@ -144,17 +133,10 @@ function RelationshipEdit(props) {
 
           <Grid container item sm={12}>
             <Grid item sm={1}>
-              <SaveComponent
-                name="save"
-                onSubmit={() => onSubmitRelationship()}
-                disabledFlag={!setIsIndividualSubjectTypeAvailable}
-              />{" "}
+              <SaveComponent name="save" onSubmit={() => onSubmitRelationship()} disabledFlag={!setIsIndividualSubjectTypeAvailable} />{" "}
             </Grid>
             <Grid item sm={11}>
-              <Button
-                style={{ float: "right", color: "red" }}
-                onClick={() => onDeleteRelationship()}
-              >
+              <Button style={{ float: "right", color: "red" }} onClick={() => onDeleteRelationship()}>
                 <DeleteIcon /> Delete
               </Button>
             </Grid>

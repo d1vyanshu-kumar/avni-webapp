@@ -82,21 +82,9 @@ export const OrgSettings = ({ hasEditPrivilege }) => {
         </Typography>
       </Grid>
       <Grid item container spacing={1} direction={"column"}>
-        {renderSimpleSetting(
-          organisationConfigSettingKeys.draftSave,
-          "Draft save",
-          "ADMIN_SAVE_DRAFT"
-        )}
-        {renderSimpleSetting(
-          organisationConfigSettingKeys.hideDateOfBirth,
-          "Hide Date of Birth on DEA",
-          "ADMIN_HIDE_DOB"
-        )}
-        {renderSimpleSetting(
-          organisationConfigSettingKeys.enableComments,
-          "Enable comments",
-          "ADMIN_ENABLE_COMMENTS"
-        )}
+        {renderSimpleSetting(organisationConfigSettingKeys.draftSave, "Draft save", "ADMIN_SAVE_DRAFT")}
+        {renderSimpleSetting(organisationConfigSettingKeys.hideDateOfBirth, "Hide Date of Birth on DEA", "ADMIN_HIDE_DOB")}
+        {renderSimpleSetting(organisationConfigSettingKeys.enableComments, "Enable comments", "ADMIN_ENABLE_COMMENTS")}
         {renderSimpleSetting(
           organisationConfigSettingKeys.enableMobileAppDbEncryption,
           "Enable mobile app db encryption",
@@ -104,28 +92,10 @@ export const OrgSettings = ({ hasEditPrivilege }) => {
           false,
           () => setShowEncryptionWarningMessage(true)
         )}
-        {renderSimpleSetting(
-          organisationConfigSettingKeys.showSummaryButton,
-          "Show summary button",
-          "ADMIN_SHOW_SUMMARY_BUTTON"
-        )}
-        {renderSimpleSetting(
-          organisationConfigSettingKeys.enableMessaging,
-          "Enable Messaging",
-          "ENABLE_MESSAGING_BUTTON"
-        )}
-        {renderSimpleSetting(
-          organisationConfigSettingKeys.useKeycloakAsIDP,
-          "Use Keycloak as IDP",
-          "USE_KEYCLOAK_AS_IDP",
-          true
-        )}
-        {renderSimpleSetting(
-          organisationConfigSettingKeys.useMinioForStorage,
-          "Use MinIO for Storage",
-          "USE_MINIO_FOR_STORAGE",
-          true
-        )}
+        {renderSimpleSetting(organisationConfigSettingKeys.showSummaryButton, "Show summary button", "ADMIN_SHOW_SUMMARY_BUTTON")}
+        {renderSimpleSetting(organisationConfigSettingKeys.enableMessaging, "Enable Messaging", "ENABLE_MESSAGING_BUTTON")}
+        {renderSimpleSetting(organisationConfigSettingKeys.useKeycloakAsIDP, "Use Keycloak as IDP", "USE_KEYCLOAK_AS_IDP", true)}
+        {renderSimpleSetting(organisationConfigSettingKeys.useMinioForStorage, "Use MinIO for Storage", "USE_MINIO_FOR_STORAGE", true)}
         {renderSimpleSetting(
           organisationConfigSettingKeys.skipRuleExecution,
           "Skip rule executions on upload",
@@ -149,12 +119,7 @@ export const OrgSettings = ({ hasEditPrivilege }) => {
           label="Inline address count"
           autoComplete="off"
           value={orgSettings.maxAddressDisplayInlineCount}
-          onChange={event =>
-            onSettingsChange(
-              organisationConfigSettingKeys.maxAddressDisplayInlineCount,
-              toNumber(event.target.value)
-            )
-          }
+          onChange={event => onSettingsChange(organisationConfigSettingKeys.maxAddressDisplayInlineCount, toNumber(event.target.value))}
           toolTipKey={"MAX_ADDRESS_DISPLAY_INLINE_COUNT"}
         />
         {showEncryptionWarningMessage && (

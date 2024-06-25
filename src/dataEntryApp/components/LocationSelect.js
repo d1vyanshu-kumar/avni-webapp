@@ -60,13 +60,11 @@ const LocationSelect = ({ onSelect, selectedLocation, placeholder, typeId, paren
   function fetchLocation(value, callback) {
     const inputValue = deburr(value.trim()).toLowerCase();
     let title = encodeURIComponent(inputValue);
-    let apiUrl = `/locations/search/find?title=${title}${makeParameter(
-      "typeId",
-      typeId
-    )}${makeParameter("parentId", parentId)}&size=100&page=0`;
-    return httpClient
-      .get(apiUrl)
-      .then(response => callback(getLocationOptions(get(response, "data.content", []))));
+    let apiUrl = `/locations/search/find?title=${title}${makeParameter("typeId", typeId)}${makeParameter(
+      "parentId",
+      parentId
+    )}&size=100&page=0`;
+    return httpClient.get(apiUrl).then(response => callback(getLocationOptions(get(response, "data.content", []))));
   }
 
   const getLocationOptions = locations =>

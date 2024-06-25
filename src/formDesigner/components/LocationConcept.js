@@ -42,15 +42,13 @@ export const LocationConcept = props => {
       setWithinCatchment(withinCatchment === true || withinCatchment === "true");
 
       const lowest =
-        props.keyValues.find(keyValue => keyValue.key === "lowestAddressLevelTypeUUIDs") !==
-        undefined
+        props.keyValues.find(keyValue => keyValue.key === "lowestAddressLevelTypeUUIDs") !== undefined
           ? props.keyValues.find(keyValue => keyValue.key === "lowestAddressLevelTypeUUIDs").value
           : undefined;
       setLowestAddressLevelTypes(lowest !== undefined ? lowest : []);
 
       const highest =
-        props.keyValues.find(keyValue => keyValue.key === "highestAddressLevelTypeUUID") !==
-        undefined
+        props.keyValues.find(keyValue => keyValue.key === "highestAddressLevelTypeUUID") !== undefined
           ? props.keyValues.find(keyValue => keyValue.key === "highestAddressLevelTypeUUID").value
           : undefined;
       setHighestAddressLevelType(highest !== undefined ? highest : "");
@@ -114,12 +112,7 @@ export const LocationConcept = props => {
     const updateValue = event === undefined ? true : event.target.checked;
     setWithinCatchment(updateValue);
     props.inlineConcept
-      ? props.updateConceptKeyValues(
-          props.groupIndex,
-          "isWithinCatchment",
-          updateValue,
-          props.index
-        )
+      ? props.updateConceptKeyValues(props.groupIndex, "isWithinCatchment", updateValue, props.index)
       : props.updateConceptKeyValues(
           {
             key: "isWithinCatchment",
@@ -133,12 +126,7 @@ export const LocationConcept = props => {
     const lowestAddressLevelTypeUUIDs = event !== undefined ? event.target.value : uuids;
     setLowestAddressLevelTypes(lowestAddressLevelTypeUUIDs);
     props.inlineConcept
-      ? props.updateConceptKeyValues(
-          props.groupIndex,
-          "lowestAddressLevelTypeUUIDs",
-          lowestAddressLevelTypeUUIDs,
-          props.index
-        )
+      ? props.updateConceptKeyValues(props.groupIndex, "lowestAddressLevelTypeUUIDs", lowestAddressLevelTypeUUIDs, props.index)
       : props.updateConceptKeyValues(
           {
             key: "lowestAddressLevelTypeUUIDs",
@@ -155,14 +143,10 @@ export const LocationConcept = props => {
       intersection = _.intersection(intersection, addressLevelTypeHierarchy.get(levelType));
     });
 
-    const highestOptions = addressLevelTypes.filter(addressLevelType =>
-      intersection.includes(addressLevelType.value)
-    );
+    const highestOptions = addressLevelTypes.filter(addressLevelType => intersection.includes(addressLevelType.value));
     setHighestAddressLevelTypeOptions(highestOptions);
     props.error["noCommonAncestor"] =
-      highestOptions.length === 0 &&
-      lowestAddressLevelTypes.length !== 1 &&
-      lowestAddressLevelTypes[0].parent !== null;
+      highestOptions.length === 0 && lowestAddressLevelTypes.length !== 1 && lowestAddressLevelTypes[0].parent !== null;
     if (highestAddressLevelType !== "" && !intersection.includes(highestAddressLevelType)) {
       updateHighestAddressLevelType();
     }
@@ -173,12 +157,7 @@ export const LocationConcept = props => {
 
     setHighestAddressLevelType(updateValue);
     props.inlineConcept
-      ? props.updateConceptKeyValues(
-          props.groupIndex,
-          "highestAddressLevelTypeUUID",
-          updateValue,
-          props.index
-        )
+      ? props.updateConceptKeyValues(props.groupIndex, "highestAddressLevelTypeUUID", updateValue, props.index)
       : props.updateConceptKeyValues(
           {
             key: "highestAddressLevelTypeUUID",
@@ -214,14 +193,8 @@ export const LocationConcept = props => {
             multiple
             toolTipKey="APP_DESIGNER_CONCEPT_LOWEST_LOCATION_LEVEL"
           />
-          {props.error.lowestAddressLevelRequired && (
-            <FormHelperText error>*Required</FormHelperText>
-          )}
-          {props.error.noCommonAncestor && (
-            <FormHelperText error>
-              No common higher location between selected lower levels.
-            </FormHelperText>
-          )}
+          {props.error.lowestAddressLevelRequired && <FormHelperText error>*Required</FormHelperText>}
+          {props.error.noCommonAncestor && <FormHelperText error>No common higher location between selected lower levels.</FormHelperText>}
         </Grid>
         {lowestAddressLevelTypes.length > 0 && (
           <Grid item={true} xs={12} sm={12}>

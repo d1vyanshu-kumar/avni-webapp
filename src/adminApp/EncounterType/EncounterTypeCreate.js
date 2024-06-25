@@ -68,9 +68,8 @@ const EncounterTypeCreate = ({ organisationConfig }) => {
       setSubjectValidation(true);
       hasError = true;
     }
-    const { jsCode, validationError } = validateRule(
-      encounterType.encounterEligibilityCheckDeclarativeRule,
-      holder => holder.generateEligibilityRule()
+    const { jsCode, validationError } = validateRule(encounterType.encounterEligibilityCheckDeclarativeRule, holder =>
+      holder.generateEligibilityRule()
     );
     if (!_.isEmpty(validationError)) {
       hasError = true;
@@ -89,10 +88,7 @@ const EncounterTypeCreate = ({ organisationConfig }) => {
         ...encounterType,
         subjectTypeUuid: subjectT.uuid,
         programEncounterFormUuid: _.get(encounterType, "programEncounterForm.formUUID"),
-        programEncounterCancelFormUuid: _.get(
-          encounterType,
-          "programEncounterCancellationForm.formUUID"
-        ),
+        programEncounterCancelFormUuid: _.get(encounterType, "programEncounterCancellationForm.formUUID"),
         programUuid: _.get(programT, "uuid")
       })
       .then(response => {
@@ -170,11 +166,7 @@ const EncounterTypeCreate = ({ organisationConfig }) => {
               ) : (
                 <></>
               )}
-              <EncounterTypeErrors
-                nameValidation={nameValidation}
-                subjectValidation={subjectValidation}
-                error={error}
-              />
+              <EncounterTypeErrors nameValidation={nameValidation} subjectValidation={subjectValidation} error={error} />
               <Button color="primary" variant="contained" type="submit" startIcon={<Save />}>
                 Save
               </Button>

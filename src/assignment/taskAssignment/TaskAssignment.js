@@ -34,20 +34,9 @@ const tableRef = React.createRef();
 const TaskAssignment = ({ history, ...props }) => {
   const classes = useStyles();
   const [state, dispatch] = React.useReducer(TaskAssignmentReducer, initialState);
-  const {
-    filterCriteria,
-    taskMetadata,
-    displayAction,
-    assignmentCriteria,
-    applyableTaskStatuses
-  } = state;
-  const { taskTypeOptions, taskStatusOptions, userOptions } = getMetadataOptions(
-    taskMetadata,
-    filterCriteria
-  );
-  const applyableTaskStatusesOptions = map(applyableTaskStatuses, ({ name, id }) =>
-    labelValue(name, id)
-  );
+  const { filterCriteria, taskMetadata, displayAction, assignmentCriteria, applyableTaskStatuses } = state;
+  const { taskTypeOptions, taskStatusOptions, userOptions } = getMetadataOptions(taskMetadata, filterCriteria);
+  const applyableTaskStatusesOptions = map(applyableTaskStatuses, ({ name, id }) => labelValue(name, id));
 
   useEffect(() => {
     api.getTaskMetadata().then(response => dispatch({ type: "setData", payload: response }));
@@ -96,13 +85,7 @@ const TaskAssignment = ({ history, ...props }) => {
               minBodyHeight: "75vh"
             }}
             components={{
-              Toolbar: props => (
-                <AssignmentToolBar
-                  dispatch={dispatch}
-                  assignmentCriteria={assignmentCriteria}
-                  {...props}
-                />
-              ),
+              Toolbar: props => <AssignmentToolBar dispatch={dispatch} assignmentCriteria={assignmentCriteria} {...props} />,
               Container: props => <Paper {...props} elevation={0} />
             }}
           />

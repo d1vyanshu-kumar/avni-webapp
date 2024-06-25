@@ -22,9 +22,7 @@ function IncludeVoidedForm({ includeVoided, includeVoidedChange }) {
         <Grid item xs={12}>
           <FormControl component="fieldset">
             <FormControlLabel
-              control={
-                <Checkbox checked={includeVoided} onChange={includeVoidedChange} color="primary" />
-              }
+              control={<Checkbox checked={includeVoided} onChange={includeVoidedChange} color="primary" />}
               label={t("includeVoided")}
               labelPlacement="end"
             />

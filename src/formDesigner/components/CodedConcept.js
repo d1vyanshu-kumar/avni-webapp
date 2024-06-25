@@ -23,9 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 export const CodedConceptUI = props => {
   const action = actionName => {
-    props.inlineConcept
-      ? props[actionName](props.groupIndex, props.elementIndex, props.index)
-      : props[actionName](props.index);
+    props.inlineConcept ? props[actionName](props.groupIndex, props.elementIndex, props.index) : props[actionName](props.index);
   };
 
   return (
@@ -52,12 +50,7 @@ export const CodedConceptUI = props => {
               checked={props.answer.abnormal}
               onChange={e =>
                 props.inlineConcept
-                  ? props.onToggleAnswerField(
-                      "abnormal",
-                      props.groupIndex,
-                      props.elementIndex,
-                      props.index
-                    )
+                  ? props.onToggleAnswerField("abnormal", props.groupIndex, props.elementIndex, props.index)
                   : props.onToggleAnswerField(e, props.index)
               }
               value={props.answer.abnormal}
@@ -76,12 +69,7 @@ export const CodedConceptUI = props => {
               checked={props.answer.unique}
               onChange={e =>
                 props.inlineConcept
-                  ? props.onToggleAnswerField(
-                      "unique",
-                      props.groupIndex,
-                      props.elementIndex,
-                      props.index
-                    )
+                  ? props.onToggleAnswerField("unique", props.groupIndex, props.elementIndex, props.index)
                   : props.onToggleAnswerField(e, props.index)
               }
               value={props.answer.unique}
@@ -96,31 +84,17 @@ export const CodedConceptUI = props => {
       <Grid item>
         <Grid item container direction={"row"} alignItems={"center"}>
           <Grid item>
-            <Button
-              disabled={props.index === 0}
-              color="primary"
-              type="button"
-              onClick={() => action("onMoveUp")}
-            >
+            <Button disabled={props.index === 0} color="primary" type="button" onClick={() => action("onMoveUp")}>
               <ArrowDropUpIcon /> Move up
             </Button>
           </Grid>
           <Grid item>
-            <Button
-              disabled={props.index + 1 === props.totalAnswers}
-              color="primary"
-              type="button"
-              onClick={() => action("onMoveDown")}
-            >
+            <Button disabled={props.index + 1 === props.totalAnswers} color="primary" type="button" onClick={() => action("onMoveDown")}>
               <ArrowDropDownIcon /> Move down
             </Button>
           </Grid>
           <Grid item>
-            <Button
-              style={{ color: "#ff0000" }}
-              type="button"
-              onClick={() => action("onDeleteAnswer")}
-            >
+            <Button style={{ color: "#ff0000" }} type="button" onClick={() => action("onDeleteAnswer")}>
               <DeleteIcon fontSize={"small"} /> Remove
             </Button>
           </Grid>
@@ -141,12 +115,7 @@ export default function CodedConcept(props) {
   return (
     <>
       <Grid container style={{ marginTop: 20 }}>
-        <Button
-          type="button"
-          className={useStyles.button}
-          color="primary"
-          onClick={props.onAlphabeticalSort}
-        >
+        <Button type="button" className={useStyles.button} color="primary" onClick={props.onAlphabeticalSort}>
           Sort alphabetically
         </Button>
         {props.answers.map((answer, index) => {
@@ -171,12 +140,7 @@ export default function CodedConcept(props) {
         })}
       </Grid>
 
-      <Button
-        type="button"
-        className={useStyles.button}
-        color="primary"
-        onClick={props.onAddAnswer}
-      >
+      <Button type="button" className={useStyles.button} color="primary" onClick={props.onAddAnswer}>
         Add New Answer
       </Button>
     </>

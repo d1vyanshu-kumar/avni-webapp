@@ -29,9 +29,7 @@ const EditEncounterTypeFields = ({
   ruleValidationError
 }) => {
   function getCancellationForms() {
-    return _.isEmpty(programT)
-      ? findEncounterCancellationForms(formList)
-      : findProgramEncounterCancellationForms(formList);
+    return _.isEmpty(programT) ? findEncounterCancellationForms(formList) : findProgramEncounterCancellationForms(formList);
   }
 
   function getEncounterForms() {
@@ -102,10 +100,7 @@ const EditEncounterTypeFields = ({
         toolTipKey={"APP_DESIGNER_ENCOUNTER_TYPE_CANCELLATION_FORM"}
       />
       <p />
-      <AvniFormLabel
-        label={"Encounter Eligibility Check Rule"}
-        toolTipKey={"APP_DESIGNER_ENCOUNTER_TYPE_ELIGIBILITY_RULE"}
-      />
+      <AvniFormLabel label={"Encounter Eligibility Check Rule"} toolTipKey={"APP_DESIGNER_ENCOUNTER_TYPE_ELIGIBILITY_RULE"} />
       {encounterType.loaded && (
         <RuleDesigner
           rulesJson={encounterType.encounterEligibilityCheckDeclarativeRule}

@@ -79,12 +79,7 @@ const ProgramShow = props => {
           <div>
             <FormLabel style={{ fontSize: "13px" }}>Subject Type</FormLabel>
             <br />
-            <ShowSubjectType
-              rowDetails={program}
-              subjectType={subjectType}
-              formMapping={formMappings}
-              entityUUID="programUUID"
-            />
+            <ShowSubjectType rowDetails={program} subjectType={subjectType} formMapping={formMappings} entityUUID="programUUID" />
           </div>
           <p />
           <div>
@@ -103,10 +98,7 @@ const ProgramShow = props => {
           </div>
           <p />
           <BooleanStatusInShow status={program.active} label={"Active"} />
-          <BooleanStatusInShow
-            status={program.allowMultipleEnrolments}
-            label={"Allow multiple active enrolments"}
-          />
+          <BooleanStatusInShow status={program.allowMultipleEnrolments} label={"Allow multiple active enrolments"} />
 
           <div>
             <FormLabel style={{ fontSize: "13px" }}>Program Subject Label</FormLabel>
@@ -118,12 +110,7 @@ const ProgramShow = props => {
             <FormLabel style={{ fontSize: "13px" }}>Enrolment Form</FormLabel>
             <br />
             <span style={{ fontSize: "15px" }}>
-              <a
-                href={`#/appdesigner/forms/${get(
-                  findProgramEnrolmentForm(formMappings, program),
-                  "formUUID"
-                )}`}
-              >
+              <a href={`#/appdesigner/forms/${get(findProgramEnrolmentForm(formMappings, program), "formUUID")}`}>
                 {get(findProgramEnrolmentForm(formMappings, program), "formName")}
               </a>
             </span>
@@ -133,12 +120,7 @@ const ProgramShow = props => {
             <FormLabel style={{ fontSize: "13px" }}>Exit Form</FormLabel>
             <br />
             <span style={{ fontSize: "15px" }}>
-              <a
-                href={`#/appdesigner/forms/${get(
-                  findProgramExitForm(formMappings, program),
-                  "formUUID"
-                )}`}
-              >
+              <a href={`#/appdesigner/forms/${get(findProgramExitForm(formMappings, program), "formUUID")}`}>
                 {get(findProgramExitForm(formMappings, program), "formName")}
               </a>
             </span>
@@ -150,20 +132,11 @@ const ProgramShow = props => {
             <span style={{ fontSize: "15px" }}>{program.organisationId}</span>
           </div>
           <p />
-          <RuleDisplay
-            fieldLabel={"Enrolment Summary Rule"}
-            ruleText={program.enrolmentSummaryRule}
-          />
+          <RuleDisplay fieldLabel={"Enrolment Summary Rule"} ruleText={program.enrolmentSummaryRule} />
           <p />
-          <RuleDisplay
-            fieldLabel={"Enrolment Eligibility Check Rule"}
-            ruleText={program.enrolmentEligibilityCheckRule}
-          />
+          <RuleDisplay fieldLabel={"Enrolment Eligibility Check Rule"} ruleText={program.enrolmentEligibilityCheckRule} />
           <p />
-          <RuleDisplay
-            fieldLabel={"Manual Enrolment Eligibility Check Rule"}
-            ruleText={program.manualEnrolmentEligibilityCheckRule}
-          />
+          <RuleDisplay fieldLabel={"Manual Enrolment Eligibility Check Rule"} ruleText={program.manualEnrolmentEligibilityCheckRule} />
           <p />
           <MessageRules
             rules={rules}

@@ -7,8 +7,7 @@ const DashboardList = ({ history, userInfo }) => {
   const columns = [
     {
       title: "Name",
-      render: rowData =>
-        !rowData.voided && <a href={`#/appDesigner/dashboard/${rowData.id}/show`}>{rowData.name}</a>
+      render: rowData => !rowData.voided && <a href={`#/appDesigner/dashboard/${rowData.id}/show`}>{rowData.name}</a>
     },
     {
       title: "Description",

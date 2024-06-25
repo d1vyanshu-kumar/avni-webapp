@@ -31,9 +31,7 @@ const DocumentationSearch = ({ value, onChange, isMulti, placeholder }) => {
   const renderEdit = () => {
     return (
       <div style={{ display: "flex", alignItems: "center" }}>
-        <Link to={{ pathname: "/documentation", state: { documentationUUID: value.value } }}>
-          {value.label}
-        </Link>
+        <Link to={{ pathname: "/documentation", state: { documentationUUID: value.value } }}>{value.label}</Link>
         <IconButton size={"small"} onClick={() => onChange(null)}>
           <DeleteIcon style={{ color: Colors.ValidationError }} />
         </IconButton>

@@ -5,9 +5,7 @@ import { useSelector } from "react-redux";
 import httpClient from "../../common/utils/httpClient";
 
 const HierarchicalLocationSelect = ({ minLevelTypeId, onSelect, selectedLocation }) => {
-  const allAddressLevelTypes = useSelector(
-    state => state.dataEntry.metadata.operationalModules.allAddressLevels
-  );
+  const allAddressLevelTypes = useSelector(state => state.dataEntry.metadata.operationalModules.allAddressLevels);
   const selectedAddressLevelType =
     _.isNil(selectedLocation) || _.isEqual(selectedLocation.uuid, "")
       ? _.find(allAddressLevelTypes, alt => _.isNil(alt.parent))
@@ -51,9 +49,7 @@ const HierarchicalLocationSelect = ({ minLevelTypeId, onSelect, selectedLocation
       addressLevel => addressLevel.addressLevelType.uuid === addressLevelType.uuid
     );
     const newSelectedAddressLevels =
-      indexToBeChanged === -1
-        ? selectedAddressLevelsClone
-        : selectedAddressLevelsClone.splice(0, indexToBeChanged);
+      indexToBeChanged === -1 ? selectedAddressLevelsClone : selectedAddressLevelsClone.splice(0, indexToBeChanged);
     newSelectedAddressLevels.push({ addressLevelType, value: addressLevel });
     setSelectedAddressLevels(newSelectedAddressLevels);
     if (finalValueAvailable(newSelectedAddressLevels)) {
@@ -69,14 +65,8 @@ const HierarchicalLocationSelect = ({ minLevelTypeId, onSelect, selectedLocation
 
   const addNextLineIfRequired = newSelectedAddressLevels => {
     const lastAddressLevel = _.last(newSelectedAddressLevels);
-    const nextAddressLevelType = _.find(
-      addressLevelTypes,
-      alt => alt.parent && alt.parent.uuid === lastAddressLevel.addressLevelType.uuid
-    );
-    setSelectedAddressLevels([
-      ...newSelectedAddressLevels,
-      { addressLevelType: nextAddressLevelType }
-    ]);
+    const nextAddressLevelType = _.find(addressLevelTypes, alt => alt.parent && alt.parent.uuid === lastAddressLevel.addressLevelType.uuid);
+    setSelectedAddressLevels([...newSelectedAddressLevels, { addressLevelType: nextAddressLevelType }]);
   };
   return (
     <div>

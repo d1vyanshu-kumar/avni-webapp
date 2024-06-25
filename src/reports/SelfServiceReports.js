@@ -31,11 +31,7 @@ const useStyles = makeStyles({
 const SelfServiceReports = () => {
   const classes = useStyles();
   return (
-    <ScreenWithAppBar
-      appbarTitle={`Self Service Reports`}
-      enableLeftMenuButton={true}
-      sidebarOptions={reportSideBarOptions}
-    >
+    <ScreenWithAppBar appbarTitle={`Self Service Reports`} enableLeftMenuButton={true} sidebarOptions={reportSideBarOptions}>
       <Grid container alignItems={"center"} spacing={3}>
         <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <Card className={classes.root}>
@@ -48,20 +44,15 @@ const SelfServiceReports = () => {
                 <Grid container wrap={"wrap"} spacing={2}>
                   <Grid item container direction={"row"} spacing={1}>
                     <Grid item>
-                      <img
-                        src={MetabaseSVG}
-                        alt={"Metabase logo"}
-                        style={{ heigth: 50, width: 50 }}
-                      />
+                      <img src={MetabaseSVG} alt={"Metabase logo"} style={{ heigth: 50, width: 50 }} />
                     </Grid>
                     <Grid item xs={10}>
                       <Typography gutterBottom variant="h4" component="h4">
                         Metabase
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
-                        Metabase provides a graphical interface to create business intelligence and
-                        analytics graphs in minutes. Avni integrates with Metabase to support ad hoc
-                        and self serviced reports.
+                        Metabase provides a graphical interface to create business intelligence and analytics graphs in minutes. Avni
+                        integrates with Metabase to support ad hoc and self serviced reports.
                       </Typography>
                     </Grid>
                   </Grid>
@@ -69,20 +60,10 @@ const SelfServiceReports = () => {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button
-                size="small"
-                color="primary"
-                href="https://www.metabase.com/docs/latest/getting-started.html"
-                target={"_blank"}
-              >
+              <Button size="small" color="primary" href="https://www.metabase.com/docs/latest/getting-started.html" target={"_blank"}>
                 Learn how to use Metabase
               </Button>
-              <Button
-                size="small"
-                color="primary"
-                href="https://reporting.avniproject.org"
-                target={"_blank"}
-              >
+              <Button size="small" color="primary" href="https://reporting.avniproject.org" target={"_blank"}>
                 Start exploring your data
               </Button>
             </CardActions>

@@ -97,9 +97,7 @@ export default ({
     showMessagesTab
   } = tabsStatus;
 
-  const [value, setValue] = React.useState(
-    tab && tab > 0 ? (showProgramTab ? tab : tab - 1) : defaultTabIndex
-  );
+  const [value, setValue] = React.useState(tab && tab > 0 ? (showProgramTab ? tab : tab - 1) : defaultTabIndex);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -125,25 +123,9 @@ export default ({
             aria-label="scrollable auto tabs example"
             className={classes.wrapper}
           >
-            {showProgramTab && (
-              <Tab
-                label={t("programs")}
-                icon={<AssessmentIcon id={"program-tab"} />}
-                {...a11yProps(0)}
-              />
-            )}
-            <Tab
-              label={t("profile")}
-              icon={<DescriptionIcon id={"profile-tab"} />}
-              {...a11yProps(registrationTabIndex)}
-            />
-            {showGeneralTab && (
-              <Tab
-                label={t("General")}
-                icon={<ListIcon id={"general-tab"} />}
-                {...a11yProps(generalTabIndex)}
-              />
-            )}
+            {showProgramTab && <Tab label={t("programs")} icon={<AssessmentIcon id={"program-tab"} />} {...a11yProps(0)} />}
+            <Tab label={t("profile")} icon={<DescriptionIcon id={"profile-tab"} />} {...a11yProps(registrationTabIndex)} />
+            {showGeneralTab && <Tab label={t("General")} icon={<ListIcon id={"general-tab"} />} {...a11yProps(generalTabIndex)} />}
           </Tabs>
         )}
       </MUAppBar>

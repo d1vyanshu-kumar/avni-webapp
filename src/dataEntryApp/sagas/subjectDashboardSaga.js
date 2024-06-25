@@ -7,21 +7,12 @@ import {
   setVoidServerError,
   setSubjectDashboardLoaded
 } from "../reducers/subjectDashboardReducer";
-import {
-  mapProfile,
-  mapGroupMembers,
-  mapProgram,
-  mapGeneral
-} from "../../common/subjectModelMapper";
+import { mapProfile, mapGroupMembers, mapProgram, mapGeneral } from "../../common/subjectModelMapper";
 import api from "../api";
 import commonApi from "../../common/service";
 import { setLoad } from "../reducers/loadReducer";
 import { selectSubjectProfile, selectOperationalModules } from "./selectors";
-import {
-  getRegistrationForm,
-  selectRegistrationForm,
-  setRegistrationForm
-} from "../reducers/registrationReducer";
+import { getRegistrationForm, selectRegistrationForm, setRegistrationForm } from "../reducers/registrationReducer";
 import { filter, isEmpty, map, includes, get } from "lodash";
 import { setSubjectProgram } from "../reducers/programSubjectDashboardReducer";
 import { setSubjectGeneral } from "../reducers/generalSubjectDashboardReducer";
@@ -76,17 +67,13 @@ export function* subjectProfileFetchWorker({ subjectUUID }) {
     filter(
       operationalModules.formMappings,
       ({ subjectTypeUUID, programUUID }) =>
-        subjectTypeUUID === subjectType.uuid &&
-        !isEmpty(programUUID) &&
-        includes(programUUIDs, programUUID)
+        subjectTypeUUID === subjectType.uuid && !isEmpty(programUUID) && includes(programUUIDs, programUUID)
     ).length > 0;
   const hasAnyGeneralEncounters =
     filter(
       operationalModules.formMappings,
       ({ subjectTypeUUID, formType, encounterTypeUUID }) =>
-        subjectTypeUUID === subjectType.uuid &&
-        formType === "Encounter" &&
-        includes(encounterTypeUUIDs, encounterTypeUUID)
+        subjectTypeUUID === subjectType.uuid && formType === "Encounter" && includes(encounterTypeUUIDs, encounterTypeUUID)
     ).length > 0;
   const showGeneralTab = showProgramTab && hasAnyGeneralEncounters;
   const displayGeneralInfoInProfileTab = hasAnyGeneralEncounters && !showGeneralTab;

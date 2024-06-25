@@ -93,11 +93,7 @@ export default function CustomizedSnackbar(props) {
         onClose={handleClose}
         TransitionProps={{ onExited: props.onExited }}
       >
-        <MySnackbarContentWrapper
-          onClose={handleClose}
-          variant={props.variant || "success"}
-          message={props.message}
-        />
+        <MySnackbarContentWrapper onClose={handleClose} variant={props.variant || "success"} message={props.message} />
       </Snackbar>
     </div>
   );

@@ -25,8 +25,7 @@ const useStyles = makeStyles(theme => ({
   expansionPanel: {
     marginBottom: "11px",
     borderRadius: "5px",
-    boxShadow:
-      "0px 0px 3px 1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)"
+    boxShadow: "0px 0px 3px 1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)"
   },
   root: {
     flexGrow: 1,
@@ -79,17 +78,14 @@ const SubjectDashboardGeneralTab = ({
 
   const plannedVisits = filter(
     general,
-    ({ voided, encounterDateTime, cancelDateTime }) =>
-      !voided && isNil(encounterDateTime) && isNil(cancelDateTime)
+    ({ voided, encounterDateTime, cancelDateTime }) => !voided && isNil(encounterDateTime) && isNil(cancelDateTime)
   );
   const ContainerComponent = displayGeneralInfoInProfileTab ? Box : Paper;
 
   return (
     <ContainerComponent className={displayGeneralInfoInProfileTab ? "" : classes.root}>
       {subjectVoided && <SubjectVoided showUnVoid={false} />}
-      {!subjectVoided && !displayGeneralInfoInProfileTab && (
-        <NewGeneralEncounterButton subjectUuid={subjectUuid} />
-      )}
+      {!subjectVoided && !displayGeneralInfoInProfileTab && <NewGeneralEncounterButton subjectUuid={subjectUuid} />}
       <ExpansionPanel className={classes.expansionPanel}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon className={classes.expandMoreIcon} />}
@@ -131,9 +127,7 @@ const SubjectDashboardGeneralTab = ({
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails style={{ padding: 0, display: "block" }}>
-          {isExpanded && (
-            <CompletedVisits entityUuid={subjectUuid} isForProgramEncounters={false} />
-          )}
+          {isExpanded && <CompletedVisits entityUuid={subjectUuid} isForProgramEncounters={false} />}
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </ContainerComponent>

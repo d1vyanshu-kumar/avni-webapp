@@ -11,15 +11,9 @@ export const configureAuth = config => {
 };
 
 export const customAmplifyErrorMsgs = msg => {
-  if (
-    /null failed with error Generate ch?allenges lambda cannot be called/i.test(
-      msg
-    )
-  )
-    return "Password cannot be empty";
+  if (/null failed with error Generate ch?allenges lambda cannot be called/i.test(msg)) return "Password cannot be empty";
 
-  if (/Cannot read property 'username' of undefined/.test(msg))
-    return "Username cannot be empty";
+  if (/Cannot read property 'username' of undefined/.test(msg)) return "Username cannot be empty";
 
   return msg;
 };

@@ -141,9 +141,7 @@ const FormWizard = ({
   const classes = useStyle();
   const { t } = useTranslation();
 
-  const isRegistrationFirstPage =
-    registrationFlow &&
-    (subject.subjectType.isPerson() ? wizard.isNonFormPage() : wizard.isFirstFormPage());
+  const isRegistrationFirstPage = registrationFlow && (subject.subjectType.isPerson() ? wizard.isNonFormPage() : wizard.isFirstFormPage());
 
   const isFirstPage = registrationFlow
     ? subject.subjectType.isPerson()
@@ -169,12 +167,7 @@ const FormWizard = ({
           </Box>
           <Paper className={classes.form}>
             {onSummaryPage ? (
-              <Summary
-                observations={observations}
-                additionalRows={additionalRows}
-                form={form}
-                fetchRulesResponse={fetchRulesResponse}
-              />
+              <Summary observations={observations} additionalRows={additionalRows} form={form} fetchRulesResponse={fetchRulesResponse} />
             ) : (
               <FormElementGroupComponent
                 key={formElementGroup.uuid}
@@ -211,11 +204,7 @@ const FormWizard = ({
               </Box>
             </Box>
             {redirect && <Redirect to={onSaveGoto} />}
-            {saved && (
-              <CustomizedSnackbar
-                message={t(message || "Your details have been successfully registered.")}
-              />
-            )}
+            {saved && <CustomizedSnackbar message={t(message || "Your details have been successfully registered.")} />}
           </Paper>
         </div>
       )}

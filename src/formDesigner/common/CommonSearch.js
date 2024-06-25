@@ -2,14 +2,7 @@ import React from "react";
 import { deburr, isEmpty } from "lodash";
 import AsyncSelect from "react-select/async";
 
-const CommonSearch = ({
-  value,
-  onChange,
-  isMulti,
-  placeholder,
-  defaultOptions = [],
-  loadOptionsByValue
-}) => {
+const CommonSearch = ({ value, onChange, isMulti, placeholder, defaultOptions = [], loadOptionsByValue }) => {
   const loadOptions = (value, callback) => {
     if (!value) {
       return callback(defaultOptions);

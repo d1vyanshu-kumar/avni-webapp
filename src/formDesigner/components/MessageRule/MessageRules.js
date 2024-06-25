@@ -6,15 +6,7 @@ import { sampleMessageRule, sampleMessageScheduleRule } from "../../common/Sampl
 import FormLabel from "@material-ui/core/FormLabel";
 import { find } from "lodash";
 
-const MessageRules = ({
-  rules = [],
-  templates = [],
-  onChange,
-  entityType,
-  entityTypeId,
-  readOnly = false,
-  fixedReceiverType = null
-}) => {
+const MessageRules = ({ rules = [], templates = [], onChange, entityType, entityTypeId, readOnly = false, fixedReceiverType = null }) => {
   const updateRules = index => newRule => {
     const newState = [...rules];
     newState[index] = {
@@ -41,26 +33,24 @@ const MessageRules = ({
       <div>
         <FormLabel style={{ fontSize: "13px" }}>Message Rules</FormLabel>
       </div>
-      {rules.map(
-        ({ scheduleRule, messageRule, name, messageTemplateId, receiverType, voided }, index) => {
-          const template = find(templates, template => template.id === messageTemplateId);
-          return voided === false ? (
-            <MessageRule
-              key={index}
-              readOnly={readOnly}
-              template={template}
-              templates={templates}
-              scheduleRule={scheduleRule}
-              messageRule={messageRule}
-              name={name}
-              receiverType={!fixedReceiverType ? receiverType : fixedReceiverType}
-              onChange={updateRules(index)}
-              onDelete={onDelete(index)}
-              fixedReceiverType={fixedReceiverType}
-            />
-          ) : null;
-        }
-      )}
+      {rules.map(({ scheduleRule, messageRule, name, messageTemplateId, receiverType, voided }, index) => {
+        const template = find(templates, template => template.id === messageTemplateId);
+        return voided === false ? (
+          <MessageRule
+            key={index}
+            readOnly={readOnly}
+            template={template}
+            templates={templates}
+            scheduleRule={scheduleRule}
+            messageRule={messageRule}
+            name={name}
+            receiverType={!fixedReceiverType ? receiverType : fixedReceiverType}
+            onChange={updateRules(index)}
+            onDelete={onDelete(index)}
+            fixedReceiverType={fixedReceiverType}
+          />
+        ) : null;
+      })}
       {!readOnly && (
         <IconButton
           Icon={AddCircleIcon}

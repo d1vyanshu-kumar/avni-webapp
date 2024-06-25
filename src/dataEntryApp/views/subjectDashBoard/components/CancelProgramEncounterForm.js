@@ -15,9 +15,7 @@ const mapFormStateToProps = state => ({
   form: state.dataEntry.programEncounterReducer.programEncounterForm,
   subject: state.dataEntry.subjectProfile.subjectProfile,
   observations: state.dataEntry.programEncounterReducer.programEncounter.cancelObservations,
-  obsHolder: new ObservationsHolder(
-    state.dataEntry.programEncounterReducer.programEncounter.cancelObservations
-  ),
+  obsHolder: new ObservationsHolder(state.dataEntry.programEncounterReducer.programEncounter.cancelObservations),
   saved: state.dataEntry.programEncounterReducer.saved,
   onSaveGoto: "/app/subject?uuid=" + state.dataEntry.subjectProfile.subjectProfile.uuid,
   validationResults: state.dataEntry.programEncounterReducer.validationResults,
@@ -27,9 +25,7 @@ const mapFormStateToProps = state => ({
   additionalRows: [
     {
       label: "Cancel Date",
-      value: moment(state.dataEntry.programEncounterReducer.programEncounter.cancelDateTime).format(
-        "DD-MMM-YYYY"
-      )
+      value: moment(state.dataEntry.programEncounterReducer.programEncounter.cancelDateTime).format("DD-MMM-YYYY")
     }
   ],
   filteredFormElements: state.dataEntry.programEncounterReducer.filteredFormElements,

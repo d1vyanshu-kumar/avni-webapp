@@ -36,9 +36,7 @@ const LogoutButton = ({ doLogout, username, onChangePassword = _.noop, lastSessi
         <ExitIcon /> Logout
       </MenuItem>
       {lastSessionTimeMillis > 0 && (
-        <span style={styles.lastLoginDate}>
-          Last login: {moment(lastSessionTimeMillis).format("MMM Do YYYY h:mm:ss a")}
-        </span>
+        <span style={styles.lastLoginDate}>Last login: {moment(lastSessionTimeMillis).format("MMM Do YYYY h:mm:ss a")}</span>
       )}
       {ApplicationContext.isDevEnv() && (
         <MenuItem

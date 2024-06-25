@@ -7,13 +7,7 @@ import httpClient from "../utils/httpClient";
 import { Grid } from "@material-ui/core";
 import { locationNameRenderer } from "../../dataEntryApp/utils/LocationUtil";
 
-const AddressLevelsByType = ({
-  label,
-  addressLevelsIds = [],
-  setAddressLevelsIds,
-  setError = noop,
-  skipGrid = false
-}) => {
+const AddressLevelsByType = ({ label, addressLevelsIds = [], setAddressLevelsIds, setError = noop, skipGrid = false }) => {
   const [selectedAddresses, setSelectedAddresses] = React.useState([]);
   const [defaultOptions, setDefaultOptions] = React.useState([]);
 
@@ -41,9 +35,7 @@ const AddressLevelsByType = ({
     const inputValue = deburr(value.trim()).toLowerCase();
     let title = encodeURIComponent(inputValue);
     let apiUrl = `/locations/search/find?title=${title}&size=100&page=0`;
-    return httpClient
-      .get(apiUrl)
-      .then(response => callback(getLocationOptions(get(response, "data.content", []))));
+    return httpClient.get(apiUrl).then(response => callback(getLocationOptions(get(response, "data.content", []))));
   }
 
   const getLocationOptions = locations =>

@@ -4,12 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/core/styles";
 import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDateTimePicker,
-  KeyboardTimePicker,
-  KeyboardDatePicker
-} from "@material-ui/pickers";
+import { MuiPickersUtilsProvider, KeyboardDateTimePicker, KeyboardTimePicker, KeyboardDatePicker } from "@material-ui/pickers";
 import _ from "lodash";
 import { dateFormat, dateTimeFormat } from "dataEntryApp/constants";
 
@@ -36,12 +31,9 @@ function NonCodedConceptForm({ searchFilterForms, selectedConcepts, onChange }) 
       <Grid container spacing={3} className={classes.componentSpacing}>
         {searchFilterForms.map((searchFilterForm, index) => {
           const selectedValue = _.head(
-            selectedConcepts.filter(
-              selectedConcept => selectedConcept.conceptUUID === searchFilterForm.conceptUUID
-            )
+            selectedConcepts.filter(selectedConcept => selectedConcept.conceptUUID === searchFilterForm.conceptUUID)
           );
-          return searchFilterForm.type === "Concept" &&
-            searchFilterForm.conceptDataType !== "Coded" ? (
+          return searchFilterForm.type === "Concept" && searchFilterForm.conceptDataType !== "Coded" ? (
             searchFilterForm.conceptDataType === "Text" ? (
               <Grid item xs={12} key={index}>
                 <Typography variant="body1" gutterBottom className={classes.lableStyle}>

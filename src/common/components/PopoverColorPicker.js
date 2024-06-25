@@ -68,11 +68,7 @@ export const PopoverColorPicker = ({ color, onChange }) => {
 
   return (
     <div className={classes.picker}>
-      <div
-        className={classes.swatch}
-        style={{ backgroundColor: color }}
-        onClick={() => toggle(true)}
-      />
+      <div className={classes.swatch} style={{ backgroundColor: color }} onClick={() => toggle(true)} />
 
       {isOpen && (
         <div className={classes.popOver} ref={popover}>

@@ -1,17 +1,9 @@
 // https://www.npmjs.com/package/http-proxy-middleware
 const _ = require("lodash");
 const { createProxyMiddleware } = require("http-proxy-middleware");
-const filteredPathStarts = [
-  "/static",
-  "/manifest.",
-  "/favicon.ico",
-  "/__get-internal-source",
-  "/main."
-];
+const filteredPathStarts = ["/static", "/manifest.", "/favicon.ico", "/__get-internal-source", "/main."];
 const filter = function(pathname, req) {
-  const doFilter = !(
-    pathname === "/" || _.some(filteredPathStarts, x => _.startsWith(pathname, x))
-  );
+  const doFilter = !(pathname === "/" || _.some(filteredPathStarts, x => _.startsWith(pathname, x)));
   return doFilter;
 };
 

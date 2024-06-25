@@ -16,14 +16,7 @@ import Box from "@material-ui/core/Box";
 import { DocumentationContainer } from "../common/components/DocumentationContainer";
 
 const EMPTY_TRANSLATION_KEY = "KEY_NOT_DEFINED";
-export const Translations = ({
-  user,
-  organisationConfig,
-  getOrgConfig,
-  dashboardData,
-  getDashboardData,
-  history
-}) => {
+export const Translations = ({ user, organisationConfig, getOrgConfig, dashboardData, getDashboardData, history }) => {
   useEffect(() => {
     getOrgConfig();
     getDashboardData("Android", EMPTY_TRANSLATION_KEY);
@@ -40,9 +33,7 @@ export const Translations = ({
       .then(response => {
         const zip = new JSZip();
         const folder = zip.folder("locale");
-        response.data.forEach(data =>
-          folder.file(data.language + ".json", JSON.stringify(data.translationJson, undefined, 2))
-        );
+        response.data.forEach(data => folder.file(data.language + ".json", JSON.stringify(data.translationJson, undefined, 2)));
         zip.generateAsync({ type: "blob" }).then(content => saveAs(content, "translations.zip"));
       })
       .catch(error => {
@@ -64,11 +55,7 @@ export const Translations = ({
       </span>
     );
     return (
-      <ScreenWithAppBar
-        appbarTitle={`Translations`}
-        enableLeftMenuButton={true}
-        renderAllOptions={false}
-      >
+      <ScreenWithAppBar appbarTitle={`Translations`} enableLeftMenuButton={true} renderAllOptions={false}>
         <Box>Language not set {link} to set.</Box>
       </ScreenWithAppBar>
     );
@@ -79,10 +66,7 @@ export const Translations = ({
       <DocumentationContainer filename={"Translation.md"}>
         <div id={"margin"}>
           <Box border={1} borderColor={"#ddd"} p={2}>
-            <TranslationDashboard
-              data={dashboardData}
-              emptyTranslationKey={EMPTY_TRANSLATION_KEY}
-            />
+            <TranslationDashboard data={dashboardData} emptyTranslationKey={EMPTY_TRANSLATION_KEY} />
           </Box>
           <p />
           <Box border={1} borderColor={"#ddd"} p={2}>
@@ -90,10 +74,7 @@ export const Translations = ({
               <h5 id="title">Upload Translations</h5>
             </Grid>
             <Grid container direction="row" justify="flex-start" alignItems="center">
-              <Import
-                locales={localeChoices}
-                onSuccessfulImport={() => getDashboardData("Android", EMPTY_TRANSLATION_KEY)}
-              />
+              <Import locales={localeChoices} onSuccessfulImport={() => getDashboardData("Android", EMPTY_TRANSLATION_KEY)} />
             </Grid>
           </Box>
           <p />
@@ -102,12 +83,7 @@ export const Translations = ({
               <h5 id="title">Download Translations</h5>
             </Grid>
             <Grid container direction="row" justify="flex-start" alignItems="center" m={3}>
-              <DropDown
-                name="Platform"
-                value={platform}
-                onChange={setPlatform}
-                options={platforms}
-              />
+              <DropDown name="Platform" value={platform} onChange={setPlatform} options={platforms} />
               <Box pl={2} pr={4}>
                 <Button
                   variant="contained"

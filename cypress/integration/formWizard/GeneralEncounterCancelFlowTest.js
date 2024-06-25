@@ -23,11 +23,7 @@ describe("General Enrolment Cancel Flow tests for form wizard", () => {
     wizardPage.checkScenarioHideFirstFEG();
   });
   it("First FEG should be hidden using all FE rule", () => {
-    wizardPage.modifyIndividualRegistration(
-      "Test Individual",
-      "Hide first FE of first FEG",
-      "Hide last FE of first FEG"
-    );
+    wizardPage.modifyIndividualRegistration("Test Individual", "Hide first FE of first FEG", "Hide last FE of first FEG");
     dashboardPage.cancelGeneralEncounter("Encounter1");
     wizardPage.checkScenarioHideFirstFEGbyAllFEG();
   });
@@ -47,11 +43,7 @@ describe("General Enrolment Cancel Flow tests for form wizard", () => {
     wizardPage.checkScenarioHideSecondFEG();
   });
   it("Second FEG is hidden using all FE rule", () => {
-    wizardPage.modifyIndividualRegistration(
-      "Test Individual",
-      "Hide first FE of second FEG",
-      "Hide last FE of second FEG"
-    );
+    wizardPage.modifyIndividualRegistration("Test Individual", "Hide first FE of second FEG", "Hide last FE of second FEG");
     dashboardPage.cancelGeneralEncounter("Encounter1");
     wizardPage.checkScenarioHideSecondFEGbyAllFEG();
   });
@@ -71,11 +63,7 @@ describe("General Enrolment Cancel Flow tests for form wizard", () => {
     wizardPage.checkScenarioHideLastFEG();
   });
   it("Last FEG is hidden using all FE rule", () => {
-    wizardPage.modifyIndividualRegistration(
-      "Test Individual",
-      "Hide first FE of last FEG",
-      "Hide last FE of last FEG"
-    );
+    wizardPage.modifyIndividualRegistration("Test Individual", "Hide first FE of last FEG", "Hide last FE of last FEG");
     dashboardPage.cancelGeneralEncounter("Encounter1");
     wizardPage.checkScenarioHideLastFEGbyAllFEG();
   });

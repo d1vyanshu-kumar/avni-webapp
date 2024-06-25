@@ -35,10 +35,7 @@ export const CreateEditVideo = ({ edit, ...props }) => {
   const validateRequest = () => {
     const { title, fileName } = video;
     if (isEmpty(title) && isEmpty(fileName)) {
-      setError([
-        { key: "EMPTY_FILE_NAME", message: "Filename cannot be empty" },
-        { key: "EMPTY_TITLE", message: "Title cannot be empty" }
-      ]);
+      setError([{ key: "EMPTY_FILE_NAME", message: "Filename cannot be empty" }, { key: "EMPTY_TITLE", message: "Title cannot be empty" }]);
     } else if (isEmpty(title)) {
       setError([...error, { key: "EMPTY_TITLE", message: "Title cannot be empty" }]);
     } else if (isEmpty(fileName)) {
@@ -61,9 +58,7 @@ export const CreateEditVideo = ({ edit, ...props }) => {
           setError([
             {
               key: "SERVER_ERROR",
-              message: `${get(error, "response.data") ||
-                get(error, "message") ||
-                "error while saving video"}`
+              message: `${get(error, "response.data") || get(error, "message") || "error while saving video"}`
             }
           ]);
         });

@@ -15,9 +15,7 @@ export const AddressLevelSetting = ({ levelUUIDs, setLevelUUIDs, locationTypes }
 
   return (
     <FormControl fullWidth component="fieldset">
-      <FormLabel component="legend">
-        {"Location type where this subject can be registered"}
-      </FormLabel>
+      <FormLabel component="legend">{"Location type where this subject can be registered"}</FormLabel>
       <Select
         isMulti
         isSearchable

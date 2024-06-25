@@ -59,9 +59,7 @@ const ProgramEdit = ({ organisationConfig, ...props }) => {
           setFormList(response.data.forms);
           setSubjectTypes(response.data.subjectTypes);
           const temp = response.data.formMappings.filter(l => l.programUUID === result.uuid);
-          setSubjectType(
-            response.data.subjectTypes.filter(l => l.uuid === temp[0].subjectTypeUUID)[0]
-          );
+          setSubjectType(response.data.subjectTypes.filter(l => l.uuid === temp[0].subjectTypeUUID)[0]);
 
           const enrolmentForm = findProgramEnrolmentForm(formMap, result);
           dispatch({ type: "programEnrolmentForm", payload: enrolmentForm });
